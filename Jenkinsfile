@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Clone the Git repository
-                git 'https://github.com/imran-ikp/project-A.git'
+                git branch: 'main', url: 'https://github.com/imran-ikp/project-A.git'
             }
         }
 
