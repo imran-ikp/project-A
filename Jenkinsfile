@@ -23,16 +23,26 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy Executables') {
+            steps {
+                // Create a deployment directory
+                sh 'mkdir -p deploy'
+
+                // Move all compiled executables to the deployment directory
+                sh 'mv *.exe ./deploy/'
+            }
+        }
     }
 
     post {
         success {
-            echo 'All C files compiled successfully!'
-            // Add further actions upon successful compilation of all files
+            echo 'Deployment completed successfully!'
+            // Add further actions upon successful deployment
         }
         failure {
-            echo 'Failed to compile one or more C files!'
-            // Add further actions upon failure of any compilation
+            echo 'Deployment failed!'
+            // Add further actions upon deployment failure
         }
     }
 }
