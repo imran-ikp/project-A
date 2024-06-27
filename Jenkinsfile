@@ -18,7 +18,7 @@ pipeline {
                     // Iterate over each .c file and compile
                     files.each { file ->
                         def executableName = file.replaceAll('\\.c$', '')
-                        sh "gcc -o ${executableName} ${file}"
+                        sh "gcc -o ${executableName}.exe ${file}"
                     }
                 }
             }
